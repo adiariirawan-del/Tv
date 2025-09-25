@@ -1,0 +1,379 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 100%);
+    color: #fff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* TV Header */
+.tv-header {
+    background: linear-gradient(45deg, #e50914, #b2070f);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tv-header h1 {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#fullscreenBtn {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#fullscreenBtn:hover {
+    background: rgba(255,255,255,0.3);
+}
+
+/* TV Container */
+.tv-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* TV Player Section */
+.tv-player-section {
+    margin-bottom: 30px;
+}
+
+.tv-player-container {
+    background: #000;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.tv-player {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background: #000;
+}
+
+.player-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #333, #555);
+    color: white;
+}
+
+#tvStream {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #1a1a1a;
+    border-top: 2px solid #333;
+}
+
+.channel-info h3 {
+    color: #e50914;
+    margin-bottom: 5px;
+}
+
+.control-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.control-buttons button {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.control-buttons button:hover {
+    background: #e50914;
+}
+
+/* Channels Section */
+.channels-section {
+    margin-bottom: 30px;
+}
+
+.channels-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #e50914;
+    font-size: 1.5em;
+}
+
+.channel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.channel-card {
+    background: linear-gradient(135deg, #2a2a2a, #3a3a3a);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 2px solid transparent;
+}
+
+.channel-card:hover {
+    transform: translateY(-5px);
+    border-color: #e50914;
+    box-shadow: 0 5px 15px rgba(229, 9, 20, 0.3);
+}
+
+.channel-card.active {
+    border-color: #e50914;
+    background: linear-gradient(135deg, #e50914, #b2070f);
+}
+
+.channel-logo {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.channel-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.channel-category {
+    font-size: 0.8em;
+    color: #ccc;
+    background: #444;
+    padding: 2px 8px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* Category Tabs */
+.category-tabs {
+    margin-bottom: 30px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tab-btn {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tab-btn.active {
+    background: #e50914;
+}
+
+.tab-btn:hover {
+    background: #444;
+}
+
+/* TV Guide */
+.tv-guide {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.guide-container {
+    display: grid;
+    gap: 10px;
+}
+
+.guide-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: #2a2a2a;
+    border-radius: 5px;
+    border-left: 4px solid #e50914;
+}
+
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.loading-content {
+    text-align: center;
+    color: white;
+}
+
+.spinner {
+    border: 4px solid #333;
+    border-left: 4px solid #e50914;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: #2a2a2a;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.modal-content button {
+    background: #e50914;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+/* Fullscreen Styles */
+body.fullscreen {
+    padding: 0;
+}
+
+body.fullscreen .tv-header,
+body.fullscreen .channels-section,
+body.fullscreen .category-tabs,
+body.fullscreen .tv-guide {
+    display: none;
+}
+
+body.fullscreen .tv-container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body.fullscreen .tv-player-container {
+    border-radius: 0;
+    height: 100vh;
+}
+
+body.fullscreen .tv-player {
+    height: 100vh;
+    padding-bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+    
+    .channel-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .tabs {
+        justify-content: flex-start;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .channel-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tv-container {
+        padding: 10px;
+    }
+}
