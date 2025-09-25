@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Online Indonesia - 20 Channel Live</title>
+    <meta name="theme-color" content="#e50914">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/tv-icon.png">
+</head>
+<body>
+    <!-- TV Header -->
+    <header class="tv-header">
+        <div class="header-content">
+            <h1>📺 TV ONLINE INDONESIA</h1>
+            <div class="header-controls">
+                <span id="currentTime">00:00:00</span>
+                <button id="fullscreenBtn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main TV Container -->
+    <div class="tv-container">
+        <!-- TV Player Section -->
+        <section class="tv-player-section">
+            <div class="tv-player-container">
+                <div id="tvPlayer" class="tv-player">
+                    <div class="player-placeholder">
+                        <h2>Pilih Channel untuk Menonton</h2>
+                        <p>20 Channel TV Indonesia Gratis</p>
+                    </div>
+                    <iframe id="tvStream" class="hidden" 
+                            frameborder="0" allowfullscreen 
+                            allow="autoplay; encrypted-media">
+                    </iframe>
+                </div>
+                
+                <!-- Player Controls -->
+                <div class="player-controls">
+                    <div class="channel-info">
+                        <h3 id="currentChannelName">TV Online Indonesia</h3>
+                        <span id="currentProgram">Live Streaming</span>
+                    </div>
+                    <div class="control-buttons">
+                        <button onclick="muteToggle()" id="muteBtn">🔊</button>
+                        <button onclick="refreshStream()">🔄</button>
+                        <button onclick="shareChannel()">📤</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Channel Grid -->
+        <section class="channels-section">
+            <h2>🎬 20 CHANNEL TV INDONESIA</h2>
+            <div class="channel-grid" id="channelGrid">
+                <!-- Channels will be loaded here -->
+            </div>
+        </section>
+
+        <!-- Category Tabs -->
+        <section class="category-tabs">
+            <div class="tabs">
+                <button class="tab-btn active" data-category="all">Semua Channel</button>
+                <button class="tab-btn" data-category="news">Berita</button>
+                <button class="tab-btn" data-category="entertainment">Hiburan</button>
+                <button class="tab-btn" data-category="sports">Olahraga</button>
+                <button class="tab-btn" data-category="education">Edukasi</button>
+            </div>
+        </section>
+
+        <!-- TV Guide -->
+        <section class="tv-guide">
+            <h3>📋 TV Guide Hari Ini</h3>
+            <div class="guide-container" id="tvGuide">
+                <!-- TV guide will be loaded here -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-content">
+            <div class="spinner"></div>
+            <p>Memuat siaran TV...</p>
+        </div>
+    </div>
+
+    <!-- Error Modal -->
+    <div id="errorModal" class="modal hidden">
+        <div class="modal-content">
+            <h3>❌ Gagal Memuat Channel</h3>
+            <p id="errorMessage">Channel sedang tidak dapat diakses</p>
+            <button onclick="closeErrorModal()">Tutup</button>
+        </div>
+    </div>
+
+    <script src="js/tv-player.js"></script>
+    <script src="js/fullscreen.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
